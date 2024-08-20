@@ -9,18 +9,17 @@ void ofApp::update(){
 
 void ofApp::draw(){	
 	if (!buffer.isAllocated()) {
-		buffer.allocate(sizeof(cor), GL_DYNAMIC_DRAW);
+		unsigned int uniformBlockIndex = glGetUniformBlockIndex(shader.getProgram(), "vars");
+		glUniformBlockBinding(shader.getProgram(), uniformBlockIndex, 0);
+		
+		buffer.bind(GL_UNIFORM_BUFFER);
+		buffer.unbind(GL_UNIFORM_BUFFER);
+		buffer.allocate(sizeof(customVars), GL_STATIC_DRAW);
+		buffer.setData(sizeof(customVars), &customVars, GL_STATIC_DRAW);
+		buffer.bindRange(GL_UNIFORM_BUFFER, 0, 0, 1 * sizeof(customVars) );
 	}
-	buffer.bind(GL_UNIFORM_BUFFER);
-	buffer.setData(sizeof(cor), &cor, GL_DYNAMIC_DRAW);
-	buffer.unbind(GL_UNIFORM_BUFFER);
 
 	shader.begin();
-	shader.setUniform4f("cor3", cor);
-	
-	auto id = buffer.getId();
-	shader.bindUniformBlock(id, "vars");
-
 	ofDrawRectangle(100, 100, 600, 600);
 	shader.end();
 }

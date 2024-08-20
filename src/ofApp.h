@@ -11,6 +11,10 @@ class ofApp : public ofBaseApp{
 
 	ofShader shader;
 	ofBufferObject buffer;
-	ofFloatColor cor { 1.0, 0.0, 0.3, 1.0 };
+	struct vars {
+		glm::vec4 v1;
+		glm::vec4 v2;
+		glm::vec4 cor { 1.0, 0.0, 0.3, 1.0 };
+	} customVars;
 
 };

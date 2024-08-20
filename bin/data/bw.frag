@@ -7,6 +7,8 @@ out vec4 outputColor;
 uniform vec4 cor3;
 
 layout(std140) uniform vars {
+	vec4 v1;
+	vec4 v2;
 	vec4 cor;
 };
 
