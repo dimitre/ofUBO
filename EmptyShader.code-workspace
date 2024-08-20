@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "${workspaceRoot}/../../../../libs/openFrameworks"
+		},
+		{
+			"path": "/Volumes/tool/ofw/addons/ofxMicroUI"
+		}
+	],
+	"openFrameworksProjectGeneratorVersion": "68",
+	"settings": {}
+}
